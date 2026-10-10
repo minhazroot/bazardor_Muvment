@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 // import ToastProvider from "@/components/toast-provider";
-// import { categories, snapshotProducts } from "@/data/snapshot";
-// import SiteHeader from "@/components/site-header";
+import { categories, snapshotProducts } from "@/data/snapshot";
+import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 // import "./globals.css";
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="bn">
       <body className="flex min-h-screen flex-col antialiased">
-        {/* <SiteHeader categories={categories} products={snapshotProducts} /> */}
+        <SiteHeader categories={categories} products={snapshotProducts} />
         <div className="flex-1">{children}</div>
         <SiteFooter />
         {/* <ToastProvider /> */}
