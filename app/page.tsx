@@ -1,22 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
-// import { ArrowDown, ArrowRight, ArrowUp, CircleDot } from "lucide-react";
-// import { getProducts } from "@/lib/products";
-// import { ProductGrid } from "@/components/product-card";
-// import SortableProducts from "@/components/sortable-products";
-// import SnapshotNote from "@/components/snapshot-note";
-// import { bnNumber } from "@/lib/numbers";
+import { ArrowDown, ArrowRight, ArrowUp, CircleDot } from "lucide-react";
+import { getProducts } from "@/lib/products";
+import { ProductGrid } from "@/components/product-card";
+import SortableProducts from "@/components/sortable-products";
+import SnapshotNote from "@/components/snapshot-note";
+import { bnNumber } from "@/lib/numbers";
 
-// export default async function HomePage() {
-//   const { products, isSnapshot } = await getProducts();
-//   const risers = [...products]
-//     .filter((p) => p.change > 0)
-//     .sort((a, b) => b.change - a.change)
-//     .slice(0, 6);
-//   const fallers = [...products]
-//     .filter((p) => p.change < 0)
-//     .sort((a, b) => a.change - b.change)
-//     .slice(0, 6);
+export default async function HomePage() {
+  const { products, isSnapshot } = await getProducts();
+  const risers = [...products]
+    .filter((p) => p.change > 0)
+    .sort((a, b) => b.change - a.change)
+    .slice(0, 6);
+  const fallers = [...products]
+    .filter((p) => p.change < 0)
+    .sort((a, b) => a.change - b.change)
+    .slice(0, 6);
   const date = new Intl.DateTimeFormat("bn-BD", {
     dateStyle: "full",
     timeZone: "Asia/Dhaka",
@@ -59,6 +59,80 @@ import Link from "next/link";
           </div>
         </div>
       </section>
+        <div className="shell pb-24">
+        {isSnapshot && <SnapshotNote />}
+        <section className="pt-13 sm:pt-16" aria-labelledby="rising-prices">
+          <div className="mb-5 flex items-center gap-3">
+            <span className="grid h-10 w-10 place-items-center rounded-xl bg-[#e8f7ec] text-[#1a9256]">
+              <ArrowUp size={22} />
+            </span>
+            <div>
+              <h2
+                id="rising-prices"
+                className="text-2xl font-extrabold text-[#214633]"
+              >
+                আজ দাম বেড়েছে <span className="text-[#a3000e]">▲</span>
+              </h2>
+              <p className="mt-1 text-[13px] text-[#869786]">
+                আজকের সর্বোচ্চ মূল্যবৃদ্ধির {bnNumber(risers.length)}টি পণ্য
+              </p>
+            </div>
+          </div>
+          {risers.length ? (
+            <ProductGrid products={risers} />
+          ) : (
+            <p className="rounded-xl bg-white p-8 text-[#73917a]">
+              এই মুহূর্তে দাম বেড়েছে এমন কোনো পণ্য নেই।
+            </p>
+          )}
+        </section>
+        <section className="pt-13 sm:pt-16" aria-labelledby="falling-prices">
+          <div className="mb-5 flex items-center gap-3">
+            <span className="grid h-10 w-10 place-items-center rounded-xl bg-[#fff0ef] text-[#de5557]">
+              <ArrowDown size={22} />
+            </span>
+            <div>
+              <h2
+                id="falling-prices"
+                className="text-2xl font-extrabold text-[#214633]"
+              >
+                আজ দাম কমেছে <span className="text-[#024f05]">▼</span>
+              </h2>
+              <p className="mt-1 text-[13px] text-[#869786]">
+                আজকের সর্বোচ্চ মূল্যহ্রাসের {bnNumber(fallers.length)}টি পণ্য
+              </p>
+            </div>
+          </div>
+          {fallers.length ? (
+            <ProductGrid products={fallers} />
+          ) : (
+            <p className="rounded-xl bg-white p-8 text-[#73917a]">
+              এই মুহূর্তে দাম কমেছে এমন কোনো পণ্য নেই।
+            </p>
+          )}
+        </section>
+        <section
+          id="সব-পণ্য"
+          className="pt-13 sm:pt-16"
+          aria-labelledby="all-products"
+        >
+          <div className="mb-5">
+            <h2
+              id="all-products"
+              className="text-[27px] font-extrabold text-[#214633]"
+            >
+              সব পণ্য
+            </h2>
+            <p className="mt-2 text-[14px] text-[#819282]">
+              আপনার প্রয়োজনীয় সব নিত্যপণ্যের দাম ও দামের পরিবর্তন জানুন এক
+              নজরে।
+            </p>
+          </div>
+          <SortableProducts products={products} />
+        </section>
+      </div>
+
+
     
     </main>
   );
