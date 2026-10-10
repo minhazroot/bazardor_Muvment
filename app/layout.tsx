@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-// import ToastProvider from "@/components/toast-provider";
+import ToastProvider from "@/components/toast-provider";
 import { categories, snapshotProducts } from "@/data/snapshot";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
-// import "./globals.css";
+import "./globals.css";
 export const metadata: Metadata = {
   title: { default: "বাজার দর | আজকের বাজারদর", template: "%s | বাজার দর" },
   description:
@@ -21,7 +21,7 @@ export default function RootLayout({
         <SiteHeader categories={categories} products={snapshotProducts} />
         <div className="flex-1">{children}</div>
         <SiteFooter />
-        {/* <ToastProvider /> */}
+        <ToastProvider />
       </body>
     </html>
   );
