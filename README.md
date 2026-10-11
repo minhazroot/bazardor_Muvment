@@ -14,7 +14,6 @@
 
 BazarDor is a Bangla-first daily market price tracker. Browse prices of rice, lentils, oil, vegetables, fish, meat, eggs/dairy and spices; see the largest price rises and falls; sort by cost; sign in to view protected detailed price comparisons; and update your own profile.
 
-> **Price accuracy:** The application requests real data from the two assignment endpoints. If both services are unavailable, it **explicitly labels** a 33-product snapshot from the reference demo dated **9 October 2026**. Snapshot prices are **not live quotations**. It never fabricates market-by-market price rows: only real market records supplied by the API appear.
 
 ## ✨ Key features
 
