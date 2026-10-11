@@ -4,7 +4,9 @@
   # 🛒 বাজার দর — BazarDor
 
   **বাংলাদেশের নিত্যপ্রয়োজনীয় পণ্যের বাজারদর ও বাজারভিত্তিক তুলনা, সব এক জায়গায়।**
-## technologies used
+
+## Technologies Used
+
   Next.js App Router • Tailwind CSS • TypeScript • Better Auth • REST API
 </div>
 
@@ -14,6 +16,7 @@
 
 BazarDor is a Bangla-first daily market price tracker. Browse prices of rice, lentils, oil, vegetables, fish, meat, eggs/dairy and spices; see the largest price rises and falls; sort by cost; sign in to view protected detailed price comparisons; and update your own profile.
 
+> **Price accuracy:** The application requests real data from the two assignment endpoints. If both services are unavailable, it **explicitly labels** a 33-product snapshot from the reference demo dated **9 October 2026**. Snapshot prices are **not live quotations**. It never fabricates market-by-market price rows: only real market records supplied by the API appear.
 
 ## ✨ Key features
 
@@ -27,8 +30,3 @@ BazarDor is a Bangla-first daily market price tracker. Browse prices of rice, le
 8. **Protected profile management** and working `authClient.updateUser({ name })` form on `/profile/edit`.
 9. **Friendly 404s**, skeleton loading states and `react-hot-toast` success/error/redirect notifications.
 10. **SEO-friendly App Router** and full-page-refresh support for `/category/[slug]`, `/product/[slug]`, etc. on Vercel.
-
-
-
-
-

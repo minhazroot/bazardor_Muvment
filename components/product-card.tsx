@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import type { Product } from "@/lib/types";
 import { bnNumber } from "@/lib/numbers";
@@ -13,7 +12,6 @@ export function ChangeBadge({ change }: { change: number }) {
   );
 }
 
-
 export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link
@@ -25,38 +23,28 @@ export default function ProductCard({ product }: { product: Product }) {
           {product.emoji}
         </span>
 
-
         <div className="min-w-0">
           <h3 className="text-[16px] font-bold text-[#243d2c]">
             {product.name}
           </h3>
-          <p className="text-[12px] text-[#8c9a8c]">
-            প্রতি {product.unit}
-          </p>
+          <p className="text-[12px] text-[#8c9a8c]">প্রতি {product.unit}</p>
         </div>
       </div>
 
-
       <div className="mt-auto flex items-end justify-between gap-2 pt-3">
         <div>
-          <p className="text-[11px] text-[#839586]">
-            আজকের দাম
-          </p>
+          <p className="text-[11px] text-[#839586]">আজকের দাম</p>
           <p className="text-[19px] font-bold text-[#243d2c]">
             {bnNumber(product.price)}
-            <span className="ml-1 text-[13px] font-normal">
-              টাকা
-            </span>
+            <span className="ml-1 text-[13px] font-normal">টাকা</span>
           </p>
         </div>
-
 
         <ChangeBadge change={product.change} />
       </div>
     </Link>
   );
 }
-
 
 export function ProductGrid({ products }: { products: Product[] }) {
   return (
